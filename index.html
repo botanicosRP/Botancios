@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b46">
+<meta name="description" content="Portal oficial de botanicosRP, Gobierno y Presidencia de GTA Roleplay PS4.">
+<title>botanicosRP | Gobierno y Presidencia</title>
+<style>
+:root {
+  --navy: #102b46;
+  --navy2: #1b4669;
+  --accent: #49c6c0;
+  --white: #ffffff;
+  --bg: #f5f8fb;
+  --text: #172438;
+  --muted: #647184;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+.topline { height: 5px; background: var(--accent); }
+header {
+  background: var(--navy);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand { font-weight: 800; letter-spacing: 2px; }
+.brand small {
+  display: block;
+  color: #b8c6d7;
+  font-weight: 400;
+  font-size: 10px;
+}
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a { font-size: 13px; color: #e0eaf3; }
+nav a:hover { color: var(--accent); }
+.hero {
+  color: white;
+  background: radial-gradient(ellipse at 80% 20%, #2c7291, transparent 42%),
+              linear-gradient(120deg, #102b46, #1b4669);
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 95px 22px;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1.08;
+  margin: 18px 0;
+}
+h1 span { color: var(--accent); }
+.hero p { max-width: 620px; color: #d4e0ec; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 1px solid var(--accent);
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: var(--navy); }
+.btn.secondary { color: white; }
+.stats {
+  max-width: 1060px;
+  margin: -25px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  padding: 0 15px;
+}
+.stat {
+  background: white;
+  padding: 22px;
+  border-right: 1px solid #e2e8ef;
+}
+.stat b { display: block; color: var(--navy); font-size: 22px; }
+.stat small { color: var(--muted); text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 72px 22px;
+  scroll-margin-top: 85px;
+}
+.section-head { margin-bottom: 30px; max-width: 680px; }
+h2 { color: var(--navy); font-size: clamp(30px, 4vw, 42px); margin: 8px 0 12px; }
+.section-head p, .panel p { color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.panel {
+  background: white;
+  border: 1px solid #e2e8ef;
+  padding: 24px;
+}
+.symbol {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: #e5f7f6;
+  color: #167c7a;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.panel h3 { color: var(--navy); margin: 0 0 8px; font-size: 21px; }
+.panel p { font-size: 14px; }
+.president { background: #eaf1f6; }
+.president-wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 22px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 45px;
+  align-items: center;
+}
+.seal {
+  min-height: 300px;
+  background: linear-gradient(145deg, var(--navy2), var(--navy));
+  border: 2px solid var(--accent);
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-size: 100px;
+}
+.quote {
+  border-left: 3px solid var(--accent);
+  padding: 10px 16px;
+  color: var(--navy);
+  font-style: italic;
+  font-size: 18px;
+}
+.dark { background: var(--navy); color: white; }
+.dark h2 { color: white; }
+.dark .section-head p { color: #c4d2df; }
+.dark .panel { color: var(--text); }
+.notice {
+  display: flex;
+  gap: 18px;
+  background: white;
+  border: 1px solid #e2e8ef;
+  padding: 24px;
+}
+.notice .number { color: #167c7a; font-weight: bold; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.contact-box { background: white; border: 1px solid #e2e8ef; padding: 26px; }
+label { display: block; font-weight: bold; font-size: 13px; margin: 14px 0 6px; }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccd6e0;
+  background: #fbfcfd;
+  font: inherit;
+}
+textarea { min-height: 100px; resize: vertical; }
+form button { margin-top: 15px; background: var(--navy); color: white; }
+.hint { color: var(--muted); font-size: 12px; }
+footer { background: #091a2b; color: #c4d2df; padding: 28px 22px; font-size: 12px; }
+.footer-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+footer strong { color: white; }
+@media (max-width: 760px) {
+  .nav { flex-direction: column; align-items: flex-start; }
+  nav { gap: 12px; }
+  .hero-inner { padding: 65px 22px; }
+  .stats, .grid, .president-wrap, .contact-grid { grid-template-columns: 1fr; }
+  .stats { margin: 0; padding: 0; }
+  .stat { border-right: 0; border-bottom: 1px solid #e2e8ef; }
+  .section { padding: 52px 20px; }
+  .seal { min-height: 220px; }
+}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#inicio">
+      BOTANICOSRP
+      <small>GOBIERNO · ROLEPLAY PS4</small>
+    </a>
+    <nav>
+      <a href="#presidencia">Presidencia</a>
+      <a href="#gobierno">Gobierno</a>
+      <a href="#leyes">Leyes</a>
+      <a href="#avisos">Comunicados</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="eyebrow">BotanicosRP · Portal institucional</div>
+    <h1>El compromiso de servir.<br><span>El deber de gobernar.</span></h1>
+    <p>
+      Bienvenido al portal oficial de botanicosRP, el Gobierno y la
+      Presidencia de nuestro servidor de GTA Roleplay para PS4.
+      Consulta las instituciones, conoce las normas y participa
+      en la vida pública de la ciudad.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#presidencia">Conocer la Presidencia</a>
+      <a class="btn secondary" href="#gobierno">Ver instituciones →</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><b>Una ciudad</b><small>Una comunidad</small></div>
+  <div class="stat"><b>Servicio público</b><small>Compromiso y respeto</small></div>
+  <div class="stat"><b>Roleplay PS4</b><small>Servidor comunitario</small></div>
+</div>
+
+<section class="president" id="presidencia">
+  <div class="president-wrap">
+    <div class="seal">✦</div>
+    <div>
+      <div class="eyebrow">La Presidencia</div>
+      <h2>Un gobierno al servicio de todos</h2>
+      <p>
+        La Presidencia de botanicosRP coordina las instituciones,
+        representa a la ciudadanía y trabaja para que el roleplay
+        sea organizado, justo y divertido para todos los jugadores.
+      </p>
+      <div class="quote">“La ley, el respeto y la cooperación son la base de una gran ciudad.”</div>
+      <p>
+        <strong>Presidente:</strong> Gabriel Quintana<br>
+        <strong>Vicepresidente:</strong> Por anunciar<br>
+        <strong>Mandato:</strong> Mandato vigente
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="gobierno" class="section">
+  <div class="section-head">
+    <div class="eyebrow">Instituciones</div>
+    <h2>Un gobierno organizado</h2>
+    <p>Conoce los departamentos de botanicosRP. Los responsables se pueden actualizar cuando quieras.</p>
+  </div>
+  <div class="grid">
+    <article class="panel">
+      <div class="symbol">🏛</div>
+      <h3>Presidencia</h3>
+      <p>Dirección del gobierno, representación institucional y coordinación de los departamentos.</p>
+    </article>
+    <article class="panel">
+      <div class="symbol">⚖</div>
+      <h3>Justicia</h3>
+      <p>Procedimientos, tribunales de roleplay, derechos ciudadanos y aplicación de las leyes.</p>
+    </article>
+    <article class="panel">
+      <div class="symbol">🛡</div>
+      <h3>Seguridad Pública</h3>
+      <p>Coordinación con los cuerpos de seguridad y protocolos de actuación dentro del servidor.</p>
+    </article>
+    <article class="panel">
+      <div class="symbol">📋</div>
+      <h3>Administración</h3>
+      <p>Organización de documentos, registros, permisos y trámites ficticios de la ciudad.</p>
+    </article>
+    <article class="panel">
+      <div class="symbol">🤝</div>
+      <h3>Ciudadanía</h3>
+      <p>Propuestas, participación pública y canales para comunicar problemas o ideas.</p>
+    </article>
+    <article class="panel">
+      <div class="symbol">🎖</div>
+      <h3>Empleo público</h3>
+      <p>Información sobre vacantes, oposiciones y procesos de selección para cargos de roleplay.</p>
+    </article>
+  </div>
+</section>
+
+<section id="leyes" class="dark">
+  <div class="section">
+    <div class="section-head">
+      <div class="eyebrow">Normativa</div>
+      <h2>Leyes y convivencia</h2>
+      <p>Normas orientativas para el roleplay. Sustitúyelas por el reglamento oficial de tu comunidad.</p>
+    </div>
+    <div class="grid">
+      <article class="panel">
+        <div class="symbol">01</div>
+        <h3>Respeto entre jugadores</h3>
+        <p>Evita el acoso, los insultos fuera de personaje y las conductas que arruinen la experiencia de otros.</p>
+      </article>
+      <article class="panel">
+        <div class="symbol">02</div>
+        <h3>Juego limpio</h3>
+        <p>Respeta las reglas del servidor sobre metagaming, powergaming, RDM y VDM.</p>
+      </article>
+      <article class="panel">
+        <div class="symbol">03</div>
+        <h3>Autoridad y procedimientos</h3>
+        <p>Los cargos públicos deben seguir la normativa del servidor y actuar con coherencia en escena.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="avisos" class="section">
+  <div class="section-head">
+    <div class="eyebrow">Actualidad institucional</div>
+    <h2>Comunicados oficiales</h2>
+    <p>Noticias de la Presidencia, elecciones, nombramientos y convocatorias.</p>
+  </div>
+  <div class="notice">
+    <div class="number">AVISO 01</div>
+    <div>
+      <h3>Bienvenidos al portal de botanicosRP</h3>
+      <p>
+        Este espacio se utilizará para publicar anuncios oficiales del
+        servidor. Próximamente: información electoral, nombramientos
+        y nuevas vacantes. Edita este aviso para publicar las novedades.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" style="background:#eef4f8">
+  <div class="section">
+    <div class="section-head">
+      <div class="eyebrow">Atención ciudadana</div>
+      <h2>Contacta con el Gobierno</h2>
+      <p>Canales de contacto para jugadores y ciudadanos de botanicosRP.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-box">
+        <h3>Canales oficiales</h3>
+        <p><strong>Discord:</strong> Por añadir</p>
+        <p><strong>Presidencia:</strong> Gabriel Quintana</p>
+        <p><strong>Horario de atención:</strong> Por anunciar</p>
+        <p class="hint">Añadiremos aquí la invitación oficial de Discord cuando esté disponible.</p>
+      </div>
+      <div class="contact-box">
+        <h3>Buzón de propuestas</h3>
+        <form id="proposalForm">
+          <label for="player">Nombre IC / personaje</label>
+          <input id="player" name="player" placeholder="Nombre del personaje" required>
+          <label for="topic">Asunto</label>
+          <select id="topic" name="topic">
+            <option>Propuesta ciudadana</option>
+            <option>Solicitud de empleo</option>
+            <option>Cita con Presidencia</option>
+            <option>Consulta de normativa</option>
+          </select>
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" placeholder="Escribe tu propuesta..." required></textarea>
+          <button class="btn" type="submit">Preparar propuesta</button>
+          <p class="hint">El formulario prepara un archivo de texto; no envía datos a un servidor.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>BOTANICOSRP · ROLEPLAY PS4</strong><br>Portal comunitario ficticio para entretenimiento.</div>
+    <div>Proyecto independiente de fans. No es una web oficial de Rockstar Games ni de PlayStation.</div>
+    <div>© <span id="year"></span> botanicosRP</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("proposalForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const player = document.getElementById("player").value.trim();
+  const topic = document.getElementById("topic").value;
+  const message = document.getElementById("message").value.trim();
+
+  const content =
+    "BOTANICOSRP - PROPUESTA CIUDADANA\n\n" +
+    "Nombre IC: " + player + "\n" +
+    "Asunto: " + topic + "\n\n" +
+    message;
+
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "propuesta-botanicosRP.txt";
+  link.click();
+
+  URL.revokeObjectURL(url);
+  alert("Propuesta preparada. Comparte el archivo con la administración del servidor.");
+});
+</script>
+</body>
+</html>
